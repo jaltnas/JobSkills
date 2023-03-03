@@ -38,18 +38,44 @@ The code uses the Selenium package to automate a Firefox browser to search for j
 Note that the code waits for two seconds after loading each page to allow all elements to load, and it will only scrape up to 100 pages for each job search. This can be changed in the for i in range(0,100): line.
 
 
+# NLP_Jobs
+This code utilizes the Python libraries langdetect, top2vec, nltk, pandas, and numpy to perform topic modeling on a dataset of job descriptions. The code first reads in the data from a CSV file, filters for English descriptions, tokenizes the descriptions into sentences, and then generates topic word clouds based on the keywords "education" and "skills" and "tools".
+Requirements
+
+The following libraries are required to run this code:
+
+    langdetect
+    top2vec
+    nltk
+    pandas
+    numpy
+
+## Installation
+
+You can install the required libraries using pip. Simply run the following command:
+
+pip install langdetect top2vec nltk pandas numpy
+
+## Usage
+
+    First, ensure that your dataset is saved in a CSV file named and contains a column for job descriptions.
+    Run the code in a Python environment.
+    The code will read in the data, filter for English descriptions, tokenize the descriptions into sentences, and generate topic word clouds based on the keywords "education" and "skills" and "tools".
+    The output will be displayed in the console.
+
+# Skill_extraction
+
+This script analyzes job descriptions for several data-related job titles retreived from the Jobscraper script. It uses the tidyverse, dplyr, ggmap, and maps packages to clean and process the data. The script removes duplicates and irrelevant job postings and corrects for wrongly assigned job types based on the job title.
+
+The script then defines a function get_top_skills that takes the processed job descriptions as input and identifies the most common skills mentioned in the descriptions. The function hard-codes a list of 37 skills that it searches for in the descriptions. It cleans the descriptions, removing any non-letter and non-number characters and converts all characters to lowercase. The function splits the descriptions into individual words and creates a list of unique words for each job description. It then combines these lists into one list and tabulates the frequency of each skill in the list. The function adds special cases for instances like "Power BI" and "Databricks" to account for variations in how these terms are written.
+
+Finally, the script defines a function plot_top_7 that creates a bar chart of the top 7 most frequently mentioned skills, as identified by get_top_skills. The function uses ggplot2 to create the chart and takes the word_count output of get_top_skills as input. It also takes an n parameter to specify how many skills to include in the chart (default is 7).
+
+Note that the code assumes that the CSV file all_data.csv from the jobscraper.py scipt is in the working directory.
 
 
 
-
-
-
-
-
-
-
-
-# JobSkills
+# Output examples
 Exploring job postings related to data science and data analytics - which skills are requested on the swedish market
 
 Topics related to keywords "education" and/or "degree".
